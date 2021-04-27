@@ -1,0 +1,38 @@
+<%- include("includes/head.ejs") %> 
+</head>
+    <body>
+        <%- include("includes/navigation.ejs") %> 
+        <button id="eventBtn" onclick="myFunction()">X = 0</button>
+        <h1 id="yyy">Y = 0</h1>
+        <script>
+            var x = 0;
+            function myFunction() {
+                setInterval(function(){ 
+                    x++;
+                    var btn = document.getElementById("eventBtn");
+                    btn.innerHTML = 'X = ' + x;
+                }, 1000);
+            }
+
+            setInterval(function(){ 
+                // let temp = loadFile("hello.txt");
+                let temp = loadFile("/Users/tuojianlyu/Desktop/hello.txt");
+                var yyy = document.getElementById("yyy");
+                yyy.innerHTML = "Y = " + temp;
+            }, 10);
+
+
+            function loadFile(filePath) {
+                var result = null;
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET", filePath, false);
+                xmlhttp.send();
+                if (xmlhttp.status==200) {
+                    result = xmlhttp.responseText;
+                }
+                return result;
+            }
+
+        </script>
+    </body>
+</html>
