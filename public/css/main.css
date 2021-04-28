@@ -106,3 +106,20 @@ main {
   background-color: #00695c;
   color: white;
 }
+
+.led {
+  height: 250px;
+  width: 250px;
+  background-color: grey;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 5rem;
+}
+.btn {
+  height: 250px;
+  width: 250px;
+  background-color: burlywood;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 5rem;
+}

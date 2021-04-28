@@ -13,7 +13,6 @@ const hmiRoutes = require("./routes/hmi");
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static("/Users/tuojianlyu/Desktop/"));
 
 app.use('/admin', adminData.routes);
 app.use(shopRoutes);

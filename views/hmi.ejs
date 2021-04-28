@@ -2,23 +2,41 @@
 </head>
     <body>
         <%- include("includes/navigation.ejs") %> 
-        <button id="eventBtn" onclick="myFunction()">X = 0</button>
-        <h1 id="yyy">Y = 0</h1>
+        <!-- <button id="eventBtn" onclick="myFunction()">X = 0</button> -->
+        <!-- <h1 id="yyy">Y = 0</h1> -->
+
+        <div style="text-align:center">
+            <h1>Round Dots / Circles</h1>
+            <span class="led" id="led"></span>
+            <span class="btn"></span>
+          </div>
+
         <script>
-            var x = 0;
-            function myFunction() {
-                setInterval(function(){ 
-                    x++;
-                    var btn = document.getElementById("eventBtn");
-                    btn.innerHTML = 'X = ' + x;
-                }, 1000);
-            }
+            // var x = 0;
+            // function myFunction() {
+            //     setInterval(function(){ 
+            //         x++;
+            //         var btn = document.getElementById("eventBtn");
+            //         btn.innerHTML = 'X = ' + x;
+            //     }, 1000);
+            // }
 
             setInterval(function(){ 
+                
                 // let temp = loadFile("hello.txt");
-                let temp = loadFile("/Users/tuojianlyu/Desktop/hello.txt");
-                var yyy = document.getElementById("yyy");
-                yyy.innerHTML = "Y = " + temp;
+                let temp = loadFile("/sys/class/gpio/gpio6/value");
+                // var yyy = document.getElementById("yyy");
+                // yyy.innerHTML = "gpio6 = " + temp;
+ 
+                if(temp != null) {
+                    if (temp.valueOf == "1".valueOf) {
+                    document.getElementById("led").style.backgroundColor = "red";
+                    } 
+                    
+                } else {
+                        document.getElementById("led").style.backgroundColor = "grey";
+                    }
+                
             }, 10);
 
 
